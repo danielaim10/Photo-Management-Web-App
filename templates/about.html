@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><i>About Me</i>.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .about-section {
+            background: #fff;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .about-section img {
+            float: left;
+            margin-right: 20px;
+            border-radius: 8px;
+            width: 300px; /* Adjusted width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .about-section h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="about-section">
+        <img src="{{ url_for('static', filename='aboutme.jpeg') }}">
+        <h1>About Me</h1>
+        <p>Hello! My name is Anastasia, and I am a dedicated and passionate professional photographer with a strong background in photo industry.</p>
+        <p>Over the years, I have developed a diverse skill set and , through this website, I would like to share with you ones of my best pictures I've made.</p>
+        <p>I pride myself on my ability to catch on camera the best moments , and I am committed to achieving excellence in everything I do. </p>
+        <p> Thank you for your attention and enjoy searching through my website!</p>
+    </div>
+{% endblock %}
+</body>
+</html>

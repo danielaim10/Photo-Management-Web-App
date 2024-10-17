@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="photo-gallery">
+    <h1><i>Photo Gallery</i></h1>
+    {% for category, images in images.items() %}
+        <h2>{{ category }}</h2>
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <a href="{{ url_for('static', filename='uploads/' ~ category ~ '/' ~ image) }}" target="_blank">
+                            <img src="{{ url_for('static', filename='uploads/' ~ category ~ '/' ~ image) }}" alt="Image" style="width:100%">
+                            <div class="caption">
+                                <p>{{ image }}</p>
+                            </div>
+                        </a>
+                        {% if session.get('admin') %}
+                        <form method="post" action="{{ url_for('delete_image', category=category, image_name=image) }}" style="display: inline;">
+                            <button type="submit" class="btn btn-danger mt-2">Delete Picture</button>
+                        </form>
+                    {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

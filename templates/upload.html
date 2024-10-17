@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh; background-color: #DEB887; border-radius: 16px;">
+    <div style="border: 2px solid #DEB887; padding: 30px; background-color: white; border-radius: 16px;">
+        <h2 class="mb-4" style="color: #B8860B;"><b>Upload Image</b></h2>
+        <form method="post" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+            <div class="form-group">
+                <label for="image" style="color: #B8860B;"><b>Select image:</b></label>
+                <input type="file" class="form-control" id="image" name="image" required>
+            </div>
+            <div class="form-group">
+                <label for="rename" style="color: #B8860B;"><b>Rename photo (optional):</b></label>
+                <input type="text" class="form-control" id="rename" name="rename">
+            </div>
+            <div class="form-group">
+                <label for="category" style="color: #B8860B;"><b>Category:</b></label>
+                <select class="form-control" id="category" name="category">
+                    {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                    <option value="uncategorized">Uncategorized</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
