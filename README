@@ -1,0 +1,90 @@
+PHOTO GALLERY SITE - MUNTEANU IRINA DANIELA 312CC
+
+Această aplicație Flask este un site de galerie foto unde un utilizator 
+autentificat (admin-ul) poate încărca, vizualiza și șterge imagini. Include 
+rute pentru autentificare și deconectare, încărcarea imaginilor, vizualizarea 
+galeriei și o pagină "About Me".
+
+app.py
+Acesta este fișierul principal care configurează și rulează aplicația ta web 
+Flask.
+Ruta index
+Această rută gestionează pagina principală unde sunt afișate toate imaginile,
+organizate pe categorii. Citește structura directorului și trimite imaginile 
+către șablonul index.html.
+index.html:
+Afișează toate categoriile de imagini și imaginile corespunzătoare fiecărei 
+categorii.Pentru fiecare imagine, se creează un link către imaginea de dimensiuni 
+complete și se afișează numele acesteia.
+Dacă utilizatorul este autentificat ca admin, apare un buton pentru ștergerea 
+imaginii.
+
+Ruta login
+Această rută gestionează autentificarea. Dacă credențialele sunt corecte,
+utilizatorul este redirecționat către pagina de încărcare, altfel, un mesaj 
+de eroare este afișat.
+login.html:
+Include un formular de autentificare cu câmpuri pentru numele de utilizator 
+și parolă.(aveti si mici hinturi care va arata adminul si parola:))
+ADMIN:tema
+Parola:tema
+
+Ruta logout
+Această rută gestionează deconectarea. Elimină sesiunea de admin și 
+redirecționează utilizatorul către pagina principală.
+
+Ruta upload
+Această rută gestionează atât afișarea formularului de încărcare, cât și procesarea
+imaginii încărcate. Dacă utilizatorul nu este autentificat ca admin, este 
+redirecționat către pagina de autentificare. Imaginea încărcată este redenumită
+dacă se specifică un nou nume, salvată în categoria specificată și un mesaj de
+succes este afișat.
+upload.html:
+Include câmpuri pentru selectarea fișierului de imagine, redenumirea opțională a
+imaginii și selectarea categoriei dintr-o listă derulantă.
+Formularul este configurat pentru a trimite datele prin metoda POST către ruta de
+încărcare.
+
+Ruta delete
+Această rută gestionează ștergerea imaginilor. Doar admin-ul autentificat poate 
+șterge imagini. Dacă imaginea există, este ștearsă și un mesaj de succes este 
+afișat.
+
+Ruta about
+Această rută afișează pagina "About Me".
+Include informații despre mine ("Anastasia"cica ma cheama:))), cariera mea de 
+fotograf și scopul acestui site.
+Conține un stil personalizat pentru secțiunea "About Me" pentru a face pagina 
+mai atractivă vizual.(deci sper ca v-am atras ca chiar m-am chinuit).
+
+
+base.html
+Acest șablon este baza pentru toate paginile tale. Conține navigația și o 
+secțiune pentru afișarea mesajelor flash și conținutul paginilor specifice.
+Fiecare dintre aceste șabloane se extinde din base.html, adăugând conținut
+specific fiecărei pagini.
+Include un meniu de navigare cu linkuri către diferite secțiuni ale site-ului
+(Home, About, Gallery, Upload, Login/Logout).
+Utilizează Bootstrap pentru a facilita stilizarea și responsive design-ul.
+Definește blocuri pentru titlu și conținut, pe care le extind și le completează
+celelalte șabloane.
+
+utils.py
+Acesta este un modul auxiliar care conține funcții utile pentru procesarea 
+fișierelor.
+In program, se verifică dacă un fișier are o extensie permisă si salvează 
+imaginea încărcată în directorul specificat. Dacă directorul categoriei nu 
+există, îl creează.
+
+In directorul meu, mai exista si directorul static unde am alte subdirectoare,
+css si uploads.
+In directorul css am un program in css care ma ajuta sa mai fac partea vizuala
+a site-ului, punand culori, margini.(atrctie vizuala ce sa mai).
+In subdirectorul uploads se incarca ca intr-o baza de date toate pozele 
+incarcate de admin, cat si poza folosita pentru background, si poza pentru
+about me.
+
+Multumesc pentru atentie si sper ca nu v-am plictisit, sper ca va place ca 
+chiar a fost un proiect muncit si de lunga durata.Mi-a placut mult sa il fac
+pentru ca a fost prima tema in care mi-a fost lasata creativitatea sa zburde,
+si nu am simtit-o deloc ca pe un chin.
